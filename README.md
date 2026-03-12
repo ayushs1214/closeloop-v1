@@ -1,91 +1,287 @@
-# CloseLoop
+<div align="center">
 
-> **"We don't only analyze calls. We execute them."**
+```
+ ██████╗██╗      ██████╗ ███████╗███████╗██╗      ██████╗  ██████╗ ██████╗
+██╔════╝██║     ██╔═══██╗██╔════╝██╔════╝██║     ██╔═══██╗██╔═══██╗██╔══██╗
+██║     ██║     ██║   ██║███████╗█████╗  ██║     ██║   ██║██║   ██║██████╔╝
+██║     ██║     ██║   ██║╚════██║██╔══╝  ██║     ██║   ██║██║   ██║██╔═══╝
+╚██████╗███████╗╚██████╔╝███████║███████╗███████╗╚██████╔╝╚██████╔╝██║
+ ╚═════╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝
+```
 
-CloseLoop is an execution-first B2B SaaS web application designed for sales teams. It leverages AI to generate and execute post-call workflows, including email drafts, CRM notes, and follow-up tasks, streamlining the entire sales process.
+### *AI that goes beyond insights — it completes your sales workflow.*
 
-## 🌟 Key Features
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI_v0.110-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/Frontend-React_18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white)](https://mongodb.com)
+[![Supabase](https://img.shields.io/badge/Auth-Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)](https://supabase.com)
+[![Gemini](https://img.shields.io/badge/AI-Gemini_3_Flash-4285F4?style=flat-square&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
+[![Resend](https://img.shields.io/badge/Email-Resend-EA4335?style=flat-square)](https://resend.com)
+[![Tests](https://img.shields.io/badge/Tests-26%2F26_passing-10B981?style=flat-square)]()
+[![License](https://img.shields.io/badge/License-MIT-F97316?style=flat-square)](./LICENSE)
 
-* **AI-Powered Execution:** Automatically generates post-call emails, categorized CRM notes, tasks (with priorities, assignees, and due dates), and key moments using Gemini 3 Flash.
-* **Call Review "Hero" Interface:** A specialized split-screen interface where reps can review call context (40%) and manage AI-generated execution items (60%).
-* **Real Email Sending:** Integrated with Resend API for actual transactional and follow-up emails upon approval.
-* **Role-Based Access Control & Teams:**
-  * **Superuser:** Platform admin managing multiple workspaces and platform-wide statistics.
-  * **Superadmin:** Company admin managing their team, reviewing performance, and controlling the Data Vault.
-  * **Rep:** Sales representative who reviews and approves call outputs.
-* **Data Vault:** Contextual document matching via trigger words to enhance AI outputs.
+</div>
 
-## 🏗 Tech Stack & Architecture
+---
 
-<p align="center"> <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" /> <img src="https://img.shields.io/badge/Frontend-React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black" /> <img src="https://img.shields.io/badge/Database-MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" /> <img src="https://img.shields.io/badge/Auth-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" /> <img src="https://img.shields.io/badge/Email-Resend-EA4335?style=for-the-badge" /> <img src="https://img.shields.io/badge/AI-Gemini_3_Flash-4285F4?style=for-the-badge&logo=google" /> <img src="https://img.shields.io/badge/License-MIT-orange?style=for-the-badge" /> </p>
+## Table of Contents
 
-## 📁 Project Structure
+- [Why CloseLoop?](#why-closeloop)
+- [UI Preview](#ui-preview)
+- [Architecture](#architecture)
+- [Features](#features)
+- [API Reference](#api-reference)
+- [Project Structure](#project-structure)
+- [Quick Start](#quick-start)
+- [Testing](#testing)
+- [Service Status](#service-status)
+- [Demo Credentials](#demo-credentials)
+- [Docker](#docker)
+- [Cloud Deployment](#cloud-deployment)
+- [Backlog](#backlog)
+- [License](#license)
 
-* `/backend` - The FastAPI server, MongoDB models, and business logic.
-* `/frontend` - The React user interface and state management.
-* `/tests` - Automated testing assets and scripts (pytest).
-* `/test_reports` - Detailed testing logs and iteration profiles.
-* `/memory` - Holds Product Requirements Documents (PRDs) and initial system context.
+---
 
-## 🚀 Quick Start Guide
+## Why CloseLoop?
 
-CloseLoop consists of separate frontend and backend services that need to run concurrently. 
+Sales tools analyze calls.
+**CloseLoop turns those insights into action.**
 
-**Prerequisites:** Node.js (v18+), Python 3.9+, and a local MongoDB instance running at `mongodb://localhost:27017`.
+No more copying notes into HubSpot.
+No more rewriting follow-up emails from scratch.
+No more manual task creation after every call.
 
-### 1. Backend Setup
+Paste a transcript. Review what the AI built. Hit approve.
+The email goes out, the CRM is updated, the tasks are assigned.
+That's the loop — and CloseLoop closes it.
 
-For full details and environment variables, refer to the [Backend Setup Guide](./backend/README.md).
+---
+
+## UI Preview
+
+**Call Review — The Hero Interface**
+
+<p align="center">
+  <img src="https://i.ibb.co/1tcPsSc6/Screenshot-2026-03-13-050211.png" width="780" alt="CloseLoop Call Review" />
+</p>
+
+**Dashboard — Execution Queue**
+
+<p align="center">
+  <img src="https://i.ibb.co/B5sRjtYZ/Screenshot-2026-03-13-045958.png" width="780" alt="CloseLoop Dashboard" />
+</p>
+
+---
+
+## Architecture
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│                         CLOSELOOP v2                           │
+├─────────────────┬──────────────────┬───────────────────────────┤
+│    Frontend     │     Backend      │        Services            │
+│                 │                  │                            │
+│  React 18       │  FastAPI 0.110   │  Gemini 3 Flash  (AI)     │
+│  React Router   │  Motor (async)   │  Supabase Auth   (real)   │
+│  Tailwind CSS   │  Pydantic v2     │  Resend API      (real)   │
+│  shadcn/ui      │  uvicorn         │  MongoDB         (data)   │
+│  Radix UI       │                  │                            │
+│  Recharts       │  Port: 8000      │  HubSpot         (mocked) │
+│  Lucide React   │  Docs: /docs     │  Transcription   (mocked) │
+│                 │                  │                            │
+│  Port: 3000     │                  │                            │
+└─────────────────┴──────────────────┴───────────────────────────┘
+```
+
+---
+
+## Features
+
+### ⚡ AI Execution Engine
+After a transcript is submitted, Gemini 3 Flash generates four ready-to-approve outputs in one shot: a follow-up email draft, categorized CRM notes, a prioritized task list with assignees and due dates, and timestamped key moments from the call.
+
+### 🖥️ Call Review — The Hero Interface
+A purpose-built split-screen workspace: **40% call context** on the left (transcript, contact info, key moments), **60% execution items** on the right (email, CRM notes, tasks). Each item is individually editable and approvable, or everything ships with a single "Approve All." Approved emails fire via Resend immediately.
+
+### 🗄️ Data Vault
+Superadmins upload contextual documents — pricing sheets, SOC2 certs, case studies — and tag them with trigger words. When a transcript mentions a trigger word, CloseLoop automatically surfaces and attaches the right document to the AI-generated email.
+
+### 👥 Role-Based Access
+
+| Role | Capabilities |
+|---|---|
+| `Superuser` | Platform admin — manage all workspaces, create companies and superusers, view platform-wide stats |
+| `Superadmin` | Company admin — manage team members, control the Data Vault, review rep performance |
+| `Rep` | Review and approve AI-generated call outputs; manage own tasks and settings |
+
+### 📧 Real Email Delivery
+Integrated with Resend. Approved follow-up emails go out immediately — no copy-paste, no context switching.
+
+---
+
+## API Reference
+
+Full interactive docs available at `http://localhost:8000/docs` (Swagger) and `http://localhost:8000/redoc`.
+
+```
+/api/auth         signup · login · /me · forgot-password
+/api/calls        CRUD · upload transcript · approve item · approve all
+/api/tasks        list · update · delete
+/api/vault        CRUD · toggle active (admin only)
+/api/admin        team management · workspace settings · performance metrics
+/api/platform     workspaces · superusers · stats · setup (superuser only)
+/api/user         stats · notifications · onboarding · profile
+```
+
+---
+
+## Project Structure
+
+```
+closeloop/
+├── backend/
+│   ├── server.py                      # All FastAPI routes, models, business logic
+│   ├── requirements.txt               # Python dependencies
+│   ├── .env                           # Environment variables (not committed)
+│   └── tests/
+│       ├── test_closeloop_api.py      # API integration tests (26 tests, 100% pass)
+│       └── test_supabase_auth.py      # Auth-specific tests
+│
+├── frontend/
+│   └── src/
+│       ├── pages/
+│       │   ├── CallReviewPage.jsx     # THE HERO — split-screen call execution
+│       │   ├── Dashboard.jsx          # Execution queue and rep overview
+│       │   ├── CallsPage.jsx          # Call list and management
+│       │   ├── CustomersPage.jsx      # Contact management
+│       │   ├── SettingsPage.jsx       # User profile and notifications
+│       │   ├── OnboardingPage.jsx     # 4-step onboarding wizard
+│       │   └── admin/
+│       │       ├── TeamPage.jsx       # Team management (superadmin)
+│       │       ├── VaultPage.jsx      # Data Vault management (superadmin)
+│       │       ├── PlatformPage.jsx   # Workspace management (superuser)
+│       │       └── AdminSettingsPage.jsx
+│       ├── context/AuthContext.js     # Supabase auth state
+│       └── lib/api.js                 # Typed API client
+│
+├── memory/PRD.md                      # Full product requirements document
+├── design_guidelines.json            # Brand identity, color system, component specs
+├── test_reports/                      # Pytest XML results and iteration logs
+└── test_result.md                     # Live test state (main ↔ testing agent protocol)
+```
+
+---
+
+## Quick Start
+
+> **Prerequisites:** Node.js v18+, Python 3.9+, MongoDB running at `mongodb://localhost:27017`
+
+### 1 — Backend
 
 ```bash
 cd backend
-python -m venv venv
 
-# Activate Virtual Environment
-# Windows: venv\Scripts\activate
-# macOS/Linux: source venv/bin/activate
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate        # macOS/Linux
+# venv\Scripts\activate         # Windows
 
 pip install -r requirements.txt
+```
 
-# Create .env file with necessary keys (Supabase, Resend, Mongo, LLM)
+Create `backend/.env`:
+
+```env
+MONGO_URL="mongodb://localhost:27017"
+DB_NAME="closeloop"
+CORS_ORIGINS="*"
+SUPABASE_URL="https://your-project.supabase.co"
+SUPABASE_KEY="your-anon-key"
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
+RESEND_API_KEY="your-resend-api-key"
+SENDER_EMAIL="onboarding@resend.dev"
+EMERGENT_LLM_KEY="your-gemini-key"
+```
+
+```bash
 uvicorn server:app --reload
 ```
-The backend API will run on `http://localhost:8000`. API Docs are available at `http://localhost:8000/docs`.
 
-### 2. Frontend Setup
+→ API: `http://localhost:8000`
+→ Swagger: `http://localhost:8000/docs`
+→ ReDoc: `http://localhost:8000/redoc`
 
-For full details, refer to the [Frontend Setup Guide](./frontend/README.md).
+---
+
+### 2 — Frontend
 
 ```bash
 cd frontend
 npm install
+```
 
-# Create a .env file if needed to set REACT_APP_API_URL
+Create `frontend/.env`:
+
+```env
+REACT_APP_API_URL=http://localhost:8000
+```
+
+```bash
 npm start
 ```
-The frontend application will be available at `http://localhost:3000`.
 
-## 🧪 Testing
+→ App: `http://localhost:3000`
 
-Both backend and frontend have their respective test suites. To run the backend tests:
+---
+
+## Testing
 
 ```bash
 cd backend
-# With venv activated:
+source venv/bin/activate
+
+# Full test suite (26 tests — auth, calls, vault, tasks, approval workflow)
 python -m pytest tests/
-# Or use the root script:
-# python backend_test.py
+
+# Root-level shortcut
+python backend_test.py
 ```
 
-## 🔐 Demo Credentials
+Coverage: authentication, full calls CRUD, Data Vault CRUD, approval workflow (individual + bulk), task management, and role-based access control.
 
-Use these for local testing:
-* **Superuser:** `superadmin@closeloop.io` / `SuperPass123!`
-* **Superadmin 1:** `sarah@technova.io` / `ClientPass123!`
-* **Superadmin 2:** `demo_user@testdemo.com` / `DemoPass123!`
+---
 
-🐳 Docker Deployment
-Example docker-compose.yml
+## Service Status
+
+| Service | Status | Notes |
+|---|---|---|
+| Authentication | ✅ Real | Supabase Auth (email/password) |
+| Email Sending | ✅ Real | Resend API — fires on approval |
+| AI Generation | ✅ Real | Gemini 3 Flash |
+| HubSpot CRM | 🟡 Mocked | Simulated in UI |
+| Transcription | 🟡 Mocked | Manual paste in current version |
+| Billing | ⬜ Not started | Stripe placeholder |
+| Calendar | ⬜ Not started | Placeholder |
+
+---
+
+## Demo Credentials
+
+For local testing only:
+
+```
+Superuser    →  superadmin@closeloop.io    /  SuperPass123!
+Superadmin   →  sarah@technova.io          /  ClientPass123!
+Superadmin   →  demo_user@testdemo.com     /  DemoPass123!
+```
+
+---
+
+## Docker
+
+```yaml
+# docker-compose.yml
 version: "3.9"
 
 services:
@@ -113,36 +309,55 @@ services:
 
 volumes:
   mongo_data:
+```
 
-Run:
-
+```bash
 docker-compose up --build
-☁️ Cloud Deployment Options
-Railway (Recommended for Backend)
+```
 
-Deploy backend as a new service
+---
 
-Add environment variables
+## Cloud Deployment
 
-Add MongoDB plugin or paste URI
+**Backend — Railway** *(recommended)*
+Deploy backend service → add environment variables → add MongoDB plugin
 
-Deploy
+**Backend — Render**
+Build: `pip install -r requirements.txt`
+Start: `uvicorn server:app --host 0.0.0.0 --port 8000`
 
-Render
+**Frontend — Netlify / Vercel**
+Build: `npm run build` · Publish: `build/` · Env: `REACT_APP_API_URL=<backend_url>`
 
-Build command: pip install -r requirements.txt
+---
 
-Start command:
-uvicorn server:app --host 0.0.0.0 --port 8000
+## Backlog
 
-Frontend on Netlify/Vercel
+**P0 — Critical**
+- HubSpot OAuth for real CRM sync
+- Audio transcription via Whisper API
+- Custom sender domain
 
-Build: npm run build
+**P1 — High**
+- Zoom / Google Meet auto-recording integration
+- Stripe billing
+- Advanced team analytics
 
-Publish: build/
+**P2 — Medium**
+- Bulk call import
+- Custom email templates
+- File upload for Data Vault documents
 
-Env: REACT_APP_API_URL=<backend_url>
+---
 
-📜 License
+## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+<div align="center">
+
+Built to close loops, not open tickets.
+
+</div>
