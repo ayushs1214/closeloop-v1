@@ -17,12 +17,7 @@ CloseLoop is an execution-first B2B SaaS web application designed for sales team
 
 ## 🏗 Tech Stack & Architecture
 
-* **Frontend:** React 18, React Router, Tailwind CSS, Shadcn/UI, and Radix UI components (bootstrapped with CRA/craco).
-* **Backend:** REST API built with Python 3.9+ & FastAPI.
-* **Database:** MongoDB (using Motor for async operations).
-* **Authentication:** Supabase Auth (email/password), proxied through the backend.
-* **AI/LLM:** Gemini 3 Flash (via Emergent Universal Key).
-* **Email Service:** Resend API.
+<p align="center"> <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" /> <img src="https://img.shields.io/badge/Frontend-React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black" /> <img src="https://img.shields.io/badge/Database-MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" /> <img src="https://img.shields.io/badge/Auth-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" /> <img src="https://img.shields.io/badge/Email-Resend-EA4335?style=for-the-badge" /> <img src="https://img.shields.io/badge/AI-Gemini_3_Flash-4285F4?style=for-the-badge&logo=google" /> <img src="https://img.shields.io/badge/License-MIT-orange?style=for-the-badge" /> </p>
 
 ## 📁 Project Structure
 
@@ -88,3 +83,66 @@ Use these for local testing:
 * **Superuser:** `superadmin@closeloop.io` / `SuperPass123!`
 * **Superadmin 1:** `sarah@technova.io` / `ClientPass123!`
 * **Superadmin 2:** `demo_user@testdemo.com` / `DemoPass123!`
+
+🐳 Docker Deployment
+Example docker-compose.yml
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+
+  mongo:
+    image: mongo:6
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
+
+Run:
+
+docker-compose up --build
+☁️ Cloud Deployment Options
+Railway (Recommended for Backend)
+
+Deploy backend as a new service
+
+Add environment variables
+
+Add MongoDB plugin or paste URI
+
+Deploy
+
+Render
+
+Build command: pip install -r requirements.txt
+
+Start command:
+uvicorn server:app --host 0.0.0.0 --port 8000
+
+Frontend on Netlify/Vercel
+
+Build: npm run build
+
+Publish: build/
+
+Env: REACT_APP_API_URL=<backend_url>
+
+📜 License
+
+This project is licensed under the MIT License.
