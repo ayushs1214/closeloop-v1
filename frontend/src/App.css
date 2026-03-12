@@ -1,0 +1,230 @@
+/* CloseLoop App Styles */
+
+/* Animation for checkmark */
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-checkmark-pop {
+  animation: checkmarkPop 0.3s ease-out forwards;
+}
+
+/* Smooth page transitions */
+.page-transition {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Split panel scrolling */
+.split-left, .split-right {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* Focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Card hover effects */
+.card-interactive {
+  @apply transition-all duration-200;
+}
+
+.card-interactive:hover {
+  @apply shadow-md border-slate-300;
+}
+
+/* Status indicator dots */
+.status-dot {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-dot-success {
+  @apply bg-emerald-500;
+}
+
+.status-dot-warning {
+  @apply bg-amber-500;
+}
+
+.status-dot-error {
+  @apply bg-red-500;
+}
+
+.status-dot-info {
+  @apply bg-blue-500;
+}
+
+/* Confidence indicators */
+.confidence-high {
+  @apply bg-emerald-50 text-emerald-700 border-emerald-200;
+}
+
+.confidence-medium {
+  @apply bg-amber-50 text-amber-700 border-amber-200;
+}
+
+.confidence-low {
+  @apply bg-red-50 text-red-700 border-red-200;
+}
+
+/* Transcript styles */
+.transcript-segment {
+  @apply py-3 border-b border-slate-100 last:border-0;
+}
+
+.transcript-speaker {
+  @apply font-medium text-slate-900;
+}
+
+.transcript-timestamp {
+  @apply font-mono text-xs text-slate-400;
+}
+
+.transcript-text {
+  @apply text-slate-600 mt-1;
+}
+
+/* Key moment indicators */
+.key-moment {
+  @apply flex items-start gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors;
+}
+
+.key-moment-indicator {
+  @apply w-2 h-2 rounded-full mt-1.5 flex-shrink-0;
+}
+
+.key-moment-document {
+  @apply bg-blue-500;
+}
+
+.key-moment-scheduling {
+  @apply bg-amber-500;
+}
+
+.key-moment-nextstep {
+  @apply bg-emerald-500;
+}
+
+/* Approval section styles */
+.approval-section {
+  @apply bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden;
+}
+
+.approval-header {
+  @apply flex items-center justify-between p-4 hover:bg-slate-50 transition-colors cursor-pointer;
+}
+
+.approval-content {
+  @apply px-4 pb-4 space-y-4;
+}
+
+.approval-actions {
+  @apply flex items-center justify-between pt-2;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-slate-200 rounded;
+}
+
+.skeleton-text {
+  @apply h-4 skeleton;
+}
+
+.skeleton-title {
+  @apply h-6 skeleton;
+}
+
+.skeleton-avatar {
+  @apply w-10 h-10 rounded-full skeleton;
+}
+
+/* Empty states */
+.empty-state {
+  @apply text-center py-12;
+}
+
+.empty-state-icon {
+  @apply w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4;
+}
+
+.empty-state-title {
+  @apply text-lg font-semibold text-slate-900;
+}
+
+.empty-state-description {
+  @apply text-slate-500 mt-2;
+}
+
+/* Sidebar navigation */
+.sidebar-link {
+  @apply flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors;
+}
+
+.sidebar-link-active {
+  @apply bg-slate-100 text-slate-900 font-medium;
+}
+
+/* Form styles */
+.form-label {
+  @apply text-sm font-medium text-slate-700;
+}
+
+.form-hint {
+  @apply text-xs text-slate-500 mt-1;
+}
+
+.form-error {
+  @apply text-xs text-red-500 mt-1;
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+  @apply bg-emerald-50 text-emerald-700 border border-emerald-200;
+}
+
+.badge-warning {
+  @apply bg-amber-50 text-amber-700 border border-amber-200;
+}
+
+.badge-error {
+  @apply bg-red-50 text-red-700 border border-red-200;
+}
+
+.badge-info {
+  @apply bg-blue-50 text-blue-700 border border-blue-200;
+}
+
+.badge-neutral {
+  @apply bg-slate-100 text-slate-600;
+}
+
+/* Glass effect header */
+.glass-header {
+  @apply backdrop-blur-md bg-white/80 border-b border-slate-200/50;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .sidebar {
+    @apply hidden;
+  }
+  
+  .main-content {
+    @apply w-full;
+  }
+}

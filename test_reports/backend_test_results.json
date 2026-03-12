@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-01-26T23:37:30.659213",
+  "total_tests": 15,
+  "passed_tests": 15,
+  "success_rate": 1.0,
+  "results": [
+    {
+      "test": "API Health Check",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2026-01-26T23:37:24.530960"
+    },
+    {
+      "test": "User Login",
+      "success": true,
+      "details": "Token received: True",
+      "timestamp": "2026-01-26T23:37:24.834475"
+    },
+    {
+      "test": "Get Current User",
+      "success": true,
+      "details": "Email: test@closeloop.com",
+      "timestamp": "2026-01-26T23:37:24.872476"
+    },
+    {
+      "test": "Demo Request",
+      "success": true,
+      "details": "Request ID: 37613a90-1533-4e0b-855f-4e0f8e4594d8",
+      "timestamp": "2026-01-26T23:37:24.918519"
+    },
+    {
+      "test": "User Stats",
+      "success": true,
+      "details": "Fields: ['pending_count', 'sent_today', 'total_calls']",
+      "timestamp": "2026-01-26T23:37:24.983016"
+    },
+    {
+      "test": "Create Call",
+      "success": true,
+      "details": "Call ID: 2268fe08-0139-458f-ad00-f7dc97359c9a",
+      "timestamp": "2026-01-26T23:37:28.276259"
+    },
+    {
+      "test": "Get Call Details",
+      "success": true,
+      "details": "AI outputs: True, Transcript: True",
+      "timestamp": "2026-01-26T23:37:30.330635"
+    },
+    {
+      "test": "Approve Email",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2026-01-26T23:37:30.369572"
+    },
+    {
+      "test": "Approve All",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2026-01-26T23:37:30.410744"
+    },
+    {
+      "test": "Get All Calls",
+      "success": true,
+      "details": "Found 2 calls",
+      "timestamp": "2026-01-26T23:37:30.451003"
+    },
+    {
+      "test": "Get Vault Documents",
+      "success": true,
+      "details": "Found 1 documents",
+      "timestamp": "2026-01-26T23:37:30.488808"
+    },
+    {
+      "test": "Create Document",
+      "success": true,
+      "details": "Document ID: 66597b50-fe46-4d79-b532-6099c6f84d21",
+      "timestamp": "2026-01-26T23:37:30.532567"
+    },
+    {
+      "test": "Toggle Document",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2026-01-26T23:37:30.569010"
+    },
+    {
+      "test": "Get Team",
+      "success": true,
+      "details": "Found 1 members",
+      "timestamp": "2026-01-26T23:37:30.612844"
+    },
+    {
+      "test": "Get Workspace Settings",
+      "success": true,
+      "details": "Settings: True",
+      "timestamp": "2026-01-26T23:37:30.656862"
+    }
+  ]
+}

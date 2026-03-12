@@ -1,0 +1,121 @@
+{
+  "brand_identity": {
+    "name": "CloseLoop",
+    "tagline": "We don't only analyze calls. We execute them.",
+    "archetype": "The Performance Pro",
+    "emotional_tone": "Surgical, Reliable, Efficient, Calm",
+    "design_philosophy": "Serious tools feel calm, not busy. Trust comes from predictability."
+  },
+  "typography": {
+    "font_family": {
+      "primary": "Inter, sans-serif",
+      "headings": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "styles": {
+      "h1": "text-4xl md:text-5xl font-bold tracking-tight text-slate-900",
+      "h2": "text-3xl font-semibold tracking-tight text-slate-900",
+      "h3": "text-2xl font-semibold tracking-tight text-slate-900",
+      "body": "text-base font-normal tracking-normal text-slate-600 leading-relaxed",
+      "label": "text-xs font-medium uppercase tracking-wide text-slate-500",
+      "mono_code": "font-mono text-sm text-slate-700 bg-slate-100 px-1 py-0.5 rounded"
+    },
+    "rules": [
+      "Use 'tracking-tight' for all headings larger than 24px.",
+      "Use 'tracking-wide' for all uppercase labels.",
+      "Never use pure black (#000000) for text. Use Slate-900 (#0F172A) instead."
+    ]
+  },
+  "colors": {
+    "primary": {
+      "DEFAULT": "#0F172A",
+      "foreground": "#F8FAFC"
+    },
+    "accent": {
+      "DEFAULT": "#3B82F6",
+      "foreground": "#FFFFFF",
+      "hover": "#2563EB"
+    },
+    "background": {
+      "DEFAULT": "#FFFFFF",
+      "secondary": "#F8FAFC",
+      "tertiary": "#F1F5F9"
+    },
+    "status": {
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "info": "#3B82F6"
+    },
+    "border": {
+      "DEFAULT": "#E2E8F0",
+      "subtle": "#F1F5F9"
+    }
+  },
+  "layout_strategies": {
+    "landing_page": {
+      "grid_mode": "Mode A (Tetris)",
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "spacing": "Generous (py-20 or py-24 for sections)",
+      "alignment": "Asymmetric. Avoid centering everything."
+    },
+    "dashboard": {
+      "grid_mode": "Mode B (High Density)",
+      "container": "w-full px-6 py-6",
+      "spacing": "Tight (gap-4 or gap-6)",
+      "structure": "Sidebar navigation + Top header + Main content area"
+    },
+    "call_review": {
+      "type": "Split Screen",
+      "ratio": "40% Left (Transcript) / 60% Right (Execution) or 50/50",
+      "behavior": "Independent scrolling for both panels. Sticky header for controls."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-slate-900 text-white hover:bg-slate-800 rounded-md shadow-sm font-medium px-4 py-2 transition-all",
+      "secondary": "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 rounded-md font-medium px-4 py-2 transition-all",
+      "ghost": "bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-md px-4 py-2 transition-all",
+      "destructive": "bg-red-500 text-white hover:bg-red-600 rounded-md shadow-sm font-medium px-4 py-2 transition-all"
+    },
+    "cards": {
+      "style": "bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200",
+      "padding": "p-6"
+    },
+    "inputs": {
+      "style": "flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    },
+    "badges": {
+      "approved": "bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2.5 py-0.5 text-xs font-medium",
+      "pending": "bg-amber-50 text-amber-700 border border-amber-200 rounded-full px-2.5 py-0.5 text-xs font-medium",
+      "error": "bg-red-50 text-red-700 border border-red-200 rounded-full px-2.5 py-0.5 text-xs font-medium",
+      "processing": "bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-2.5 py-0.5 text-xs font-medium"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": "Use 'shadow-sm' for cards, 'shadow-md' for hover states, 'shadow-lg' for dropdowns/modals.",
+    "borders": "Use 'border-slate-200' for structural division. Avoid heavy borders.",
+    "glassmorphism": "Use 'backdrop-blur-md bg-white/80 border-b border-slate-200/50' for sticky headers.",
+    "animations": "Use 'transition-all duration-200 ease-in-out' for interactions. No 'transition: all'."
+  },
+  "image_urls": {
+    "hero_main": "https://images.unsplash.com/photo-1760611656007-f767a8082758?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBtZWV0aW5nJTIwcHJvZmVzc2lvbmFsfGVufDB8fHx8MTc2OTQ2OTI2OHww&ixlib=rb-4.1.0&q=85",
+    "team_collaboration": "https://images.unsplash.com/photo-1758518726869-01aff69a56e3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBvZmZpY2UlMjBtZWV0aW5nJTIwcHJvZmVzc2lvbmFsfGVufDB8fHx8MTc2OTQ2OTI2OHww&ixlib=rb-4.1.0&q=85",
+    "trust_deal": "https://images.unsplash.com/photo-1745847768380-2caeadbb3b71?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGhhbmRzaGFrZSUyMGRlYWwlMjBjbG9zZXxlbnwwfHx8fDE3Njk0NjkyNzB8MA&ixlib=rb-4.1.0&q=85",
+    "abstract_tech": "https://images.unsplash.com/photo-1758637612717-e0cd7dc3cdea?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMGJsdWUlMjB0ZWNobm9sb2d5JTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3Njk0NjkyNzJ8MA&ixlib=rb-4.1.0&q=85"
+  },
+  "icons": {
+    "library": "lucide-react",
+    "style": "Stroke width 1.5px or 2px. Size 16px (sm), 20px (md), 24px (lg)."
+  },
+  "universal_guidelines": [
+    "Do not use gradients for text.",
+    "Do not center align the app container.",
+    "Use 'sonner' for toasts.",
+    "All interactive elements MUST include 'data-testid'.",
+    "Use 'lucide-react' for icons.",
+    "Ensure high contrast for text (Slate-600 minimum for body).",
+    "Avoid 'AI slop' - generic centered layouts. Use asymmetry.",
+    "Call Review page is the HERO. Prioritize its UX."
+  ]
+}
